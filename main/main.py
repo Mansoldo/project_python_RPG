@@ -16,8 +16,8 @@ def menu_game():
             spacing()
             menu_game()
 
-    except ValueError as erro:
-        print('Por favor, digite um número entre 1 e 4')
+    except ValueError:
+        print('Erro de valor: favor inserir um valor entre 1 e 4')
         spacing()
         menu_game()
 
@@ -89,23 +89,23 @@ def name_check(nome):
 
     return True
 
+def begin_game():
+    try:
+        checking = True
+
+        while checking:
+            nome = name_question()
+            name_valid = name_check(nome)
+
+            if not name_valid:
+                print('Nome inválido! Favor inserir um nome válido')
+                spacing()
+            else:
+                checking = False
+                print('Que comece os jogos!')
+    except:
+        pass
+
 spacing()
 menu_game()
-
 spacing()
-
-try:
-    checking = True
-
-    while checking:
-        nome = name_question()
-        name_valid = name_check(nome)
-
-        if not name_valid:
-            print('Nome inválido! Favor inserir um nome válido')
-            spacing()
-        else:
-            checking = False
-            print('Que comece os jogos!')
-except:
-    pass
