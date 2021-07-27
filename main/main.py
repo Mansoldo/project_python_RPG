@@ -30,7 +30,41 @@ def menu_game():
     else:
         exit()
 
+def instruction():
+    spacing()
+    print('Bem vindo ao projeto "RPG" textual relacionado com o seção 2 do curso de Python completo.\n'
+          'Serão apresentados 5 perguntas relacionadas ao tema, contendo 4 alternativas. Em caso de \n'
+          'escolha inexistente, será considerado errado a questão. \n'
+          'No final será exibido a quantidade de questões certas. Para avançar para o módulo 3 do \n'
+          'curso, precisará ter um aproveitamento superior a 70%¨.')
+    spacing()
+    select = input('Aperte a tecla "m" de Menu para retornar: ')
+    select = select.capitalize()
+    if select == 'M':
+        spacing()
+        menu_game()
+    else:
+        spacing()
+        print('Opção inválida. Para retornar digite a tecla "m".')
+        instruction()
 
+def creditos():
+    print('Desenvolvedor: Diego Mansoldo \n'
+          'Realizador: Diego Mansoldo \n'
+          'Roteiro Original: Diego Mansoldo \n'
+          'Design de Perguntas: Diego Mansoldo \n'
+          'QA: Diego Mansoldo \n'
+          'Diretor Executivo: Diego Mansoldo')
+    spacing()
+    select = input('Aperte a tecla "m" de Menu para retornar: ')
+    select = select.capitalize()
+    if select == 'M':
+        spacing()
+        menu_game()
+    else:
+        spacing()
+        print('Opção inválida. Para retornar digite a tecla "m".')
+        creditos()
 
 # Adding a function to space
 def spacing():
@@ -55,13 +89,6 @@ def name_check(nome):
 
     return True
 
-
-spacing()
-
-print('Bem vindo ao projeto "RPG" textual relacionado com o seção 2 do curso de Python completo.\n'
-      'Serão apresentados 5 perguntas relacionadas ao tema, contendo 4 alternativas. No final \n'
-      'será exibido a quantidade de questões certas. Para avançar para o módulo 3 do curso, precisará\n'
-      'ter um aproveitamento superior a 70%¨.')
 spacing()
 menu_game()
 
