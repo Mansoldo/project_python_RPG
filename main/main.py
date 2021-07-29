@@ -33,8 +33,8 @@ def menu_game():
 def instruction():
     spacing()
     print('Bem vindo ao projeto "RPG" textual relacionado com o seção 2 do curso de Python completo.\n'
-          'Serão apresentados 5 perguntas relacionadas ao tema, contendo 4 alternativas. Em caso de \n'
-          'escolha inexistente, será considerado errado a questão. \n'
+          'Serão apresentados 5 perguntas relacionadas ao tema, contendo 5 alternativas de "a" a "e".\n'
+          'Em caso de escolha inexistente, será considerado errado a questão. \n'
           'No final será exibido a quantidade de questões certas. Para avançar para o módulo 3 do \n'
           'curso, precisará ter um aproveitamento superior a 70%¨.')
     spacing()
@@ -89,6 +89,82 @@ def name_check(nome):
 
     return True
 
+def dictionary_questions():
+    perguntas = {
+        'Pergunta 1': {
+            'pergunta': 'O que a função build-in "startswith" faz?',
+            'resposta': {
+                'a': 'Verifica o início de uma string',
+                'b': 'Verifica o final de uma string',
+                'c': 'Inicializa uma variável',
+                'd': 'Valida o ínicio da string de acordo com o parâmetro',
+                'e': 'Não existe esta função em Python',
+            },
+            'resposta_certa': 'd'
+        },
+        'Pergunta 2': {
+            'pergunta': 'É possível fazer uso função Switch/Case?',
+            'resposta': {
+                'a': 'Não existe tal função em nenhuma linguagem',
+                'b': 'Ela não existe em Python',
+                'c': 'Pode-se usar apenas para substituir If/Else',
+                'd': 'Pode ser aplicada apenas em OO',
+                'e': 'Sim',
+            },
+            'resposta_certa': 'b'
+        },
+        'Pergunta 3': {
+            'pergunta': 'É possível utilizar parâmetro nomeado em String Format?',
+            'resposta': {
+                'a': 'Sim',
+                'b': 'Não',
+                'c': 'Só é válido passagem de parâmetros normais',
+                'd': 'Pode-se utilizar o "f" no início e depois o parãmetro',
+                'e': 'Não há como formatar string',
+            },
+            'resposta_certa': 'a'
+        },
+        'Pergunta 4': {
+            'pergunta': 'Qual o tipo de dado primitivo sai de um "input"?',
+            'resposta': {
+                'a': 'Int',
+                'b': 'Float',
+                'c': 'String',
+                'd': 'Boolean',
+                'e': 'Depende do tipo de entrada',
+            },
+            'resposta_certa': 'c'
+        },
+        'Pergunta 5': {
+            'pergunta': 'Qual a outra forma de efetuar a contagem de caracteres além de len()?',
+            'resposta': {
+                'a': '__len__()',
+                'b': 'lenght()',
+                'c': 'leng()',
+                'd': 'lengt()',
+                'e': '_len_()',
+            },
+            'resposta_certa': 'a'
+        },
+    }
+    return perguntas
+
+def validation(perguntas):
+    respostas_corretas = 0
+
+    for pk, pv in perguntas.items():
+        print(f'{pk}: {pv["pergunta"]}')
+        print('Opções:')
+        for rk, rv in pv['resposta'].items():
+            print(f'\t{(rk)}: {rv}')
+
+        usuario_resposta = input('Sua opção: ')
+        if usuario_resposta == pv['resposta_certa']:
+            respostas_corretas += 1
+        print()
+
+        return respostas_corretas
+
 def begin_game():
     try:
         checking = True
@@ -102,7 +178,19 @@ def begin_game():
                 spacing()
             else:
                 checking = False
-                print('Que comece os jogos!')
+                print('Seja bem vindo!!!')
+                spacing()
+                perguntas = dictionary_questions()
+                respostas_certas = validation(perguntas)
+                qtd_perguntas = len(perguntas)
+                prc_acerto = int(respostas_certas / qtd_perguntas * 100)
+
+                print(f'Você acertou {respostas_certas} questões de um total de {qtd_perguntas}')
+
+                msg = 'Você acertou mais de 70, então pode seguir para o próximo capítulo' \
+                    if prc_acerto > 70 else 'Revise novamente a sessão 2, e refaça o teste'
+                print(msg)
+                exit()
     except:
         pass
 
