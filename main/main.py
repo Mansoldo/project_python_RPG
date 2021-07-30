@@ -192,7 +192,7 @@ def begin_game():
 
                 print(f'{nome}, você acertou {respostas_certas} questões de um total de {qtd_perguntas}!')
 
-                msg = 'Você acertou mais de 70%, então pode seguir para o próximo capítulo' \
+                msg = 'Meus parabéns, você acertou mais de 70%, então pode seguir para o próximo capítulo' \
                     if prc_acerto >= 70 else 'Revise novamente a sessão 2, e refaça o teste'
                 print(msg)
                 exit()
