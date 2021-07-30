@@ -30,9 +30,10 @@ def menu_game():
     else:
         exit()
 
+# Game instructions
 def instruction():
     spacing()
-    print('Bem vindo ao projeto "RPG" textual relacionado com o seção 2 do curso de Python completo.\n'
+    print('Bem vindo ao projeto "game" textual relacionado com o seção 2 do curso de Python completo.\n'
           'Serão apresentados 5 perguntas relacionadas ao tema, contendo 5 alternativas de "a" a "e".\n'
           'Em caso de escolha inexistente, será considerado errado a questão. \n'
           'No final será exibido a quantidade de questões certas. Para avançar para o módulo 3 do \n'
@@ -48,6 +49,7 @@ def instruction():
         print('Opção inválida. Para retornar digite a tecla "m".')
         instruction()
 
+# Game creditos for me
 def creditos():
     print('Desenvolvedor: Diego Mansoldo \n'
           'Realizador: Diego Mansoldo \n'
@@ -89,6 +91,7 @@ def name_check(nome):
 
     return True
 
+# The questions in a dict
 def dictionary_questions():
     perguntas = {
         'Pergunta 1': {
@@ -149,6 +152,7 @@ def dictionary_questions():
     }
     return perguntas
 
+# validation of questions and answers
 def validation(perguntas):
     respostas_corretas = 0
 
@@ -165,6 +169,7 @@ def validation(perguntas):
 
     return respostas_corretas
 
+# Game beginning
 def begin_game():
     try:
         checking = True
@@ -185,7 +190,7 @@ def begin_game():
                 qtd_perguntas = len(perguntas)
                 prc_acerto = int(respostas_certas / qtd_perguntas * 100)
 
-                print(f'{nome}, você acertou {respostas_certas} questões de um total de {qtd_perguntas}')
+                print(f'{nome}, você acertou {respostas_certas} questões de um total de {qtd_perguntas}!')
 
                 msg = 'Você acertou mais de 70%, então pode seguir para o próximo capítulo' \
                     if prc_acerto >= 70 else 'Revise novamente a sessão 2, e refaça o teste'
