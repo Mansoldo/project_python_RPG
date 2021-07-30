@@ -156,14 +156,14 @@ def validation(perguntas):
         print(f'{pk}: {pv["pergunta"]}')
         print('Opções:')
         for rk, rv in pv['resposta'].items():
-            print(f'\t{(rk)}: {rv}')
+            print(f'\t({rk}): {rv}')
 
         usuario_resposta = input('Sua opção: ')
         if usuario_resposta == pv['resposta_certa']:
             respostas_corretas += 1
         print()
 
-        return respostas_corretas
+    return respostas_corretas
 
 def begin_game():
     try:
@@ -185,10 +185,10 @@ def begin_game():
                 qtd_perguntas = len(perguntas)
                 prc_acerto = int(respostas_certas / qtd_perguntas * 100)
 
-                print(f'Você acertou {respostas_certas} questões de um total de {qtd_perguntas}')
+                print(f'{nome}, você acertou {respostas_certas} questões de um total de {qtd_perguntas}')
 
-                msg = 'Você acertou mais de 70, então pode seguir para o próximo capítulo' \
-                    if prc_acerto > 70 else 'Revise novamente a sessão 2, e refaça o teste'
+                msg = 'Você acertou mais de 70%, então pode seguir para o próximo capítulo' \
+                    if prc_acerto >= 70 else 'Revise novamente a sessão 2, e refaça o teste'
                 print(msg)
                 exit()
     except:
